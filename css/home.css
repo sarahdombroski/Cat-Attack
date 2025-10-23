@@ -1,0 +1,15 @@
+main {
+    margin: 25px;
+}
+
+main img {
+    width: 1000px;
+    display: block;
+    margin: auto;
+}
+
+main button {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}

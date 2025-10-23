@@ -1,0 +1,8 @@
+:root {
+    --header-font-family: 'Courier New', Courier, monospace;
+    --paragraph-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --header-font-size: xx-large;
+    --paragraph-font-size: larger;
+    --background-color: lightgrey;
+    --header-background-color: #FFC09F;
+}

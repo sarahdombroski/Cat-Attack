@@ -1,0 +1,18 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    align-items: center;
+}
+
+footer img {
+    height: 50px;
+}
+
+footer p {
+    font-size: small;
+}
+
+footer h1 {
+    font-size: large;
+}
