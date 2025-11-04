@@ -1,0 +1,1 @@
+const apiKey = import.meta.env.api_key;
