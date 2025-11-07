@@ -1,6 +1,7 @@
 // const apiKey = import.meta.env.api_key;
 const breedUrl = "https://api.thecatapi.com/v1/breeds";
-const imgUrl = "https://api.thecatapi.com/v1/images/"
+const imgUrl = "https://api.thecatapi.com/v1/images/";
+let index = 0;
 
 async function setPicture(id) {
     try {
@@ -22,7 +23,7 @@ async function setPicture(id) {
     }
 }
 
-async function getInformation() {
+async function getInformation(index) {
     try {
         const response = await fetch(breedUrl);
 
@@ -31,18 +32,33 @@ async function getInformation() {
         }
 
         const array = await response.json();
+        console.log(array);
 
-        // get random breed
-        const randomIndex = Math.floor(Math.random() * array.length);
-        const randomElement = array[randomIndex]; //object with all information for that breed
+        const element = array[index]; //object with all information for that breed
 
-        console.log(randomElement)
+        console.log(element)
 
-        setPicture(randomElement.reference_image_id); // set the image on the main screen with the image id from the element
+        setPicture(element.reference_image_id); // set the image on the main screen with the image id from the element
     } catch(error) {
         console.error('There was an error:', error);
     }
 }
 
+getInformation(index);
 
-getInformation();
+const forward = document.querySelector("#nextPicture");
+const backward = document.querySelector("#previousPicture");
+
+forward.addEventListener("click", () => {
+    if (index != 66) {
+        index += 1; 
+    }
+    getInformation(index);
+})
+
+backward.addEventListener("click", () => {
+    if (index != 0) {
+        index -= 1;
+    }
+    getInformation(index);
+})

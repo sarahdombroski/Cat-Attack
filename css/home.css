@@ -13,3 +13,13 @@ main button {
     margin: auto;
     margin-top: 15px;
 }
+
+#slideshow {
+    display: flex;
+}
+
+#slideshow p {
+    font-size: 100px;
+    align-self: center;
+    cursor: pointer;
+}
