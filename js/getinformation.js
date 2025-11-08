@@ -18,6 +18,23 @@ export async function getInformation(index) {
     }
 }
 
+// NEW function: fetch all breeds as an array
+export async function getAllBreeds() {
+    try {
+        const response = await fetch(breedUrl);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const array = await response.json();
+        return array; // return full array of all breeds
+    } catch(error) {
+        console.error('There was an error fetching all breeds:', error);
+        return [];
+    }
+}
+
 function catInformation(object) {
     return `<h1>Name: ${object.name}</h1>
     <p>Description: ${object.description}</p>
@@ -40,16 +57,16 @@ export async function showModal(index) {
     })
 }
 
-export function saveCat(id) {
+export function saveCat(uniqueId) {
     // get existing saved cats (if any)
     const savedCats = JSON.parse(localStorage.getItem('savedCats')) || [];
 
     // check if it’s already saved
-    if (!savedCats.includes(id)) {
-    savedCats.push(id); // add it!
-    localStorage.setItem('savedCats', JSON.stringify(savedCats)); // save it back
-    console.log('Cat saved! 🐱', savedCats);
+    if (!savedCats.includes(uniqueId)) {
+        savedCats.push(uniqueId); // add it!
+        localStorage.setItem('savedCats', JSON.stringify(savedCats)); // save it back
+        console.log('Cat saved! 🐱', savedCats);
     } else {
-    console.log('Already saved this kitty 😸');
+        console.log('Already saved this kitty 😸');
     }
 }

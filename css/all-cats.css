@@ -9,11 +9,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 200px);
   padding: 60px 40px;
   text-align: center;
 }
-
 
 .cats-container h1 {
   margin-bottom: 20px;
@@ -27,58 +25,81 @@ body {
   max-width: 800px;
 }
 
-
-.cats-grid {
+/* Grid layout for the cards */
+.cats-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px; 
+  gap: 30px;
   width: 100%;
-  max-width: 900px; 
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.cat-card {
+/* Responsive columns */
+@media (min-width: 600px) {
+  .cats-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .cats-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cat card styling */
+.cat-item {
   background-color: white;
   border-radius: 16px;
-  padding: 30px; 
+  padding: 20px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: transform 0.2s ease;
 }
 
-.cat-card:hover {
+.cat-item:hover {
   transform: translateY(-5px);
 }
 
-.cat-card img {
-  width: 100%;
-  border-radius: 10px;
+/* Image styling */
+.cat-item img {
+  width: 100%;           /* makes image fit card width */
+  max-height: 200px;     /* prevents huge tall images */
+  object-fit: cover;     /* crops if needed without stretching */
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-.cat-card p {
-  margin-top: 15px;
+/* Name styling */
+.cat-item .cat-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Description styling */
+.cat-item .cat-info p {
+  font-size: 0.95em;
   color: #333;
-  font-size: 1em;
+  text-align: center;
 }
 
-.cat-card button {
-  padding: 12px 24px;
-  font-size: 1em;
+/* Buttons styling */
+.cat-item button {
+  padding: 10px 20px;
+  font-size: 0.95em;
+  margin: 5px;
   border: none;
   border-radius: 10px;
   background-color: #0078ff;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  margin-top: 15px;
 }
 
-.cat-card button:hover {
+.cat-item button:hover {
   background-color: #005fcc;
   transform: scale(1.05);
-}
-
-@media (min-width: 700px) {
-  .cats-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
 }

@@ -3,54 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Attack</title>
-    <meta name="description" content="">
+    <title>Cat Attack - All Cats</title>
+    <meta name="description" content="View all cats by breed. Learn more about each adorable cat and add them to your collection.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/all-cats.css">
+    <script src="js/viewallcats.js" type="module" defer></script>
 </head>
 <body>
     <header>
         <div class="logo">
             <h1><a href="index.html">Cat Attack</a></h1>
-            <img src="images/cathead.png">
+            <img src="images/cathead.png" alt="Cat Attack Logo">
         </div>
-        <div class="links">
+        <nav class="links">
             <a href="my-cats.html">My Cats</a>
             <a href="all-cats.html">View All Cats</a>
             <a href="contact.html">Contact Us</a>
-        </div>
+        </nav>
     </header>
 
-    <main class="cats-container">
-  <h2>All Cats</h2>
-  <p>Meet our adorable cats! Learn more about each one below.</p>
+    <main class="all-cats-container">
+        <h1>All Cats</h1>
+        <p>Meet our adorable cats! Select a breed below to see 12 cats at a time.</p>
 
-  <div class="cats-grid">
-    <div class="cat-card">
-      <img src="images/gingercat.avif" alt="Ginger Cat">
-      <button>About this cat ❤️</button>
-    </div>
+        <!-- Breed dropdown inserted dynamically by JS -->
+        <div class="breed-select-container"></div>
 
-    <div class="cat-card">
-      <img src="images/greycat.webp" alt="Black Cat">
-      <button>About this cat ❤️</button>
-    </div>
-
-    <div class="cat-card">
-      <img src="images/tigercat.jpg" alt="White Cat">
-      <button>About this cat ❤️</button>
-    </div>
-  </div>
-</main>
-
+        <!-- Cat cards container -->
+        <section class="cats-list"></section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Cat Attack</p>
         <div class="about">
-            <h1>About Us</h1>
+            <h2>About Us</h2>
             <p>We aim to give every cat a home. Don't worry, these cats won't actually attack you. They are loving creatures who just want to find their family.</p>
         </div>
-        <img src="images/fullcat.png">
+        <img src="images/fullcat.png" alt="Full Cat Footer">
     </footer>
 </body>
 </html>
