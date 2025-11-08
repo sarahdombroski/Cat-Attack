@@ -1,0 +1,41 @@
+const breedUrl = "https://api.thecatapi.com/v1/breeds";
+
+export async function getInformation(index) {
+    try {
+        const response = await fetch(breedUrl);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const array = await response.json();
+        console.log(array);
+
+        return array[index]; //object with all information for that breed
+
+    } catch(error) {
+        console.error('There was an error:', error);
+    }
+}
+
+function catInformation(object) {
+    return `<h1>Name: ${object.name}</h1>
+    <p>Description: ${object.description}</p>
+    <p>Temperment: ${object.temperament}</p>
+    <p>Life Span: ${object.life_span}</p>
+    <p>Origin: ${object.origin}</p>
+    <p>Wikipedia: ${object.wikipedia_url}</p>`;
+}
+
+export async function showModal(index) {
+    const modal = document.querySelector("#about-cat");
+    modal.classList.remove('hidden');
+
+    const modalContent = document.querySelector(".modal-div");
+    let element = await getInformation(index);
+    modalContent.innerHTML = catInformation(element);
+
+    document.querySelector(".close").addEventListener("click", () => {
+        modal.classList.add('hidden');
+    })
+}
