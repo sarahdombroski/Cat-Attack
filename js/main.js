@@ -53,6 +53,5 @@ document.querySelector("#aboutbtn").addEventListener("click", () => {showModal(i
 
 // Save to local storage
 document.getElementById('saveCat').addEventListener('click', async () => {
-    let saveElement = await getInformation(index);
-    saveCat(saveElement.id);
+    saveCat(index);
 });
