@@ -39,3 +39,17 @@ export async function showModal(index) {
         modal.classList.add('hidden');
     })
 }
+
+export function saveCat(id) {
+    // get existing saved cats (if any)
+    const savedCats = JSON.parse(localStorage.getItem('savedCats')) || [];
+
+    // check if it’s already saved
+    if (!savedCats.includes(id)) {
+    savedCats.push(id); // add it!
+    localStorage.setItem('savedCats', JSON.stringify(savedCats)); // save it back
+    console.log('Cat saved! 🐱', savedCats);
+    } else {
+    console.log('Already saved this kitty 😸');
+    }
+}

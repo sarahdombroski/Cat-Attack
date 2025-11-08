@@ -1,4 +1,4 @@
-import { getInformation, showModal } from "./getinformation.js";
+import { getInformation, showModal, saveCat } from "./getinformation.js";
 // const apiKey = import.meta.env.api_key;
 const imgUrl = "https://api.thecatapi.com/v1/images/";
 let index = 0;
@@ -50,3 +50,9 @@ backward.addEventListener("click", () => {
 
 // About this cat popup
 document.querySelector("#aboutbtn").addEventListener("click", () => {showModal(index)});
+
+// Save to local storage
+document.getElementById('saveCat').addEventListener('click', async () => {
+    let saveElement = await getInformation(index);
+    saveCat(saveElement.id);
+});
