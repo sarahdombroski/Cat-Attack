@@ -3,7 +3,7 @@ import { getInformation, showModal, saveCat } from "./getinformation.js";
 const imgUrl = "https://api.thecatapi.com/v1/images/";
 let index = 0;
 
-async function setPicture(id) {
+export async function setPicture(id) {
     try {
         const response = await fetch(imgUrl + id);
 
