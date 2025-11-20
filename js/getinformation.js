@@ -57,14 +57,13 @@ export async function showModal(index) {
     })
 }
 
-export function saveCat(uniqueId) {
-    // get existing saved cats (if any)
+export function saveCat(imageId) {
     const savedCats = JSON.parse(localStorage.getItem('savedCats')) || [];
 
     // check if it’s already saved
-    if (!savedCats.includes(uniqueId)) {
-        savedCats.push(uniqueId); // add it!
-        localStorage.setItem('savedCats', JSON.stringify(savedCats)); // save it back
+    if (!savedCats.includes(imageId)) {
+        savedCats.push(imageId); 
+        localStorage.setItem('savedCats', JSON.stringify(savedCats));
         console.log('Cat saved! 🐱', savedCats);
     } else {
         console.log('Already saved this kitty 😸');

@@ -1,3 +1,4 @@
+/* --- DESKTOP HEADER --- */
 header {
     display: flex;
     justify-content: space-evenly;
@@ -22,4 +23,65 @@ header img {
 
 header a {
     padding: 25px;
+}
+
+/* --- TABLET / SMALL WINDOW LAYOUT --- */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;       /* stack logo + links */
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    header .logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+        margin: 0;
+    }
+
+    header .logo img {
+        max-height: 40px;
+        height: auto;
+        width: auto;
+    }
+
+    /* Links container wraps nicely if needed */
+    header .links {
+        display: flex;
+        flex-wrap: wrap;               /* wrap links to next row if needed */
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+
+    header .links a {
+        padding: 10px;
+        font-size: 1.1rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        min-width: 100px;              /* prevents shrinking too small */
+        max-width: 200px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    header .links a:hover {
+        background: #ffe6f2;
+    }
+}
+
+/* --- MOBILE PHONES LAYOUT --- */
+@media (max-width: 600px) {
+    header .links {
+        flex-direction: column;        /* stack links vertically on phones */
+    }
 }

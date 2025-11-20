@@ -2,27 +2,76 @@ main {
     margin: 25px;
 }
 
-main img {
-    width: 1000px;
-    display: block;
-    margin: auto;
-    max-height: 600px;     /* prevents huge tall images */
-    object-fit: cover;     /* crops if needed without stretching */
-    object-position: top;  /* so you always see the cat's face */
-}
-
-main button {
-    display: block;
-    margin: auto;
-    margin-top: 15px;
-}
-
+/* --- SLIDESHOW CONTAINER --- */
 #slideshow {
     display: flex;
+    justify-content: center;   /* center image + arrows */
+    align-items: center;
+    gap: 20px;                 /* space between arrows and image */
+    flex-wrap: wrap;           /* wrap on smaller screens */
 }
 
+/* --- SLIDESHOW IMAGE --- */
+#mainImg {
+    width: 100%;               /* full width of container */
+    max-width: 800px;          /* keeps images same size */
+    height: 500px;             /* fixed height for uniform look */
+    object-fit: cover;         /* crops without stretching */
+    object-position: center;   /* always show cat face */
+    border-radius: 15px;       /* cute rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* subtle shadow */
+    transition: transform 0.3s ease; /* smooth zoom effect on hover */
+}
+
+#mainImg:hover {
+    transform: scale(1.02);    /* tiny zoom on hover */
+}
+
+/* --- NAV ARROWS --- */
 #slideshow p {
-    font-size: 100px;
-    align-self: center;
+    font-size: 60px;           /* slightly smaller for balance */
     cursor: pointer;
+    user-select: none;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+#slideshow p:hover {
+    color: #ff69b4;            /* cute pink hover */
+}
+
+/* --- ABOUT BUTTON --- */
+main button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    border: none;
+    background-color: #ffe6f2;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+main button:hover {
+    background-color: #ffb6d9;
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVE FOR MOBILE --- */
+@media (max-width: 600px) {
+    #mainImg {
+        width: 100%;
+        height: 300px;          /* smaller height for phones */
+    }
+
+    #slideshow p {
+        font-size: 40px;        /* smaller arrows for mobile */
+    }
+
+    main button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
 }

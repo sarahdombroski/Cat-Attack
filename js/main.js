@@ -53,5 +53,18 @@ document.querySelector("#aboutbtn").addEventListener("click", () => {showModal(i
 
 // Save to local storage
 document.getElementById('saveCat').addEventListener('click', async () => {
-    saveCat(index);
+    let element = await getInformation(index);  // fetch the current cat again
+    saveCat(element.reference_image_id);        // save the correct image ID
 });
+
+// --- AUTO SLIDESHOW ---
+setInterval(() => {
+    // Increment index, wrap around if it exceeds 66 (total cats)
+    if (index >= 66) {
+        index = 0;
+    } else {
+        index += 1;
+    }
+
+    init(); // update the image
+}, 5000); // 7000ms = 7 seconds
