@@ -72,7 +72,7 @@ h2 {
 /* Image styling */
 .cat-item img {
   width: 100%;           /* makes image fit card width */
-  max-height: 200px;     /* prevents huge tall images */
+  max-height: 250px;     /* prevents huge tall images */
   object-fit: cover;     /* crops if needed without stretching */
   object-position: top;  /* so you always see the cat's face */
   border-radius: 12px;

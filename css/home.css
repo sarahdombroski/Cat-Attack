@@ -6,6 +6,9 @@ main img {
     width: 1000px;
     display: block;
     margin: auto;
+    max-height: 600px;     /* prevents huge tall images */
+    object-fit: cover;     /* crops if needed without stretching */
+    object-position: top;  /* so you always see the cat's face */
 }
 
 main button {

@@ -46,15 +46,13 @@ body {
   gap: 10px;
 }
 
-.cat-image .heart {
-  color: red;
-  font-size: 1.5em;
-}
-
 .cat-image img {
   width: 85%;
   border-radius: 8px;
   display: block;
+  max-height: 300px;     /* prevents huge tall images */
+  object-fit: cover;     /* crops if needed without stretching */
+  object-position: top;  /* so you always see the cat's face */
 }
 
 @media (min-width: 700px) {
