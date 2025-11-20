@@ -3,20 +3,11 @@ import { getAllBreeds, getInformation, saveCat } from "./getinformation.js";
 const catsList = document.querySelector('.cats-list');
 const breedSelect = document.createElement('select');
 breedSelect.innerHTML = `<option value="">-- Select Breed --</option>`;
-document.querySelector('main').prepend(breedSelect);
+document.querySelector('.breed-select-container').prepend(breedSelect);
 
-// Load all breeds into dropdown
-getAllBreeds().then(breeds => {
-    breeds.forEach((breed, index) => {
-        const option = document.createElement('option');
-        option.value = index;
-        option.textContent = breed.name;
-        breedSelect.appendChild(option);
-    });
-
-    // Show first breed by default if you want
-    if (breeds.length > 0) showCatsByBreed(0);
-});
+// URL parameters
+const params = new URLSearchParams(window.location.search);
+const breedIndex = params.get('breed');
 
 // Show 12 cats for a specific breed
 function showCatsByBreed(index) {
@@ -62,7 +53,27 @@ function showCatsByBreed(index) {
     });
 }
 
+// Load all breeds into dropdown
+getAllBreeds().then(breeds => {
+    breeds.forEach((breed, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = breed.name;
+        breedSelect.appendChild(option);
+    });
+
+    // If there is a URL parameter
+    if (breedIndex !== null) {
+        breedSelect.value = breedIndex;
+        showCatsByBreed(breedIndex);
+    } else {
+        showCatsByBreed(0);
+    }
+});
+
 // When dropdown changes
-breedSelect.addEventListener('change', () => {
-    if (breedSelect.value !== "") showCatsByBreed(breedSelect.value);
+breedSelect.addEventListener('change', (e) => {
+    //if (breedSelect.value !== "") showCatsByBreed(breedSelect.value);
+    const selected = e.target.value;
+    window.location.search = `?breed=${selected}`;
 });

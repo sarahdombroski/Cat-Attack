@@ -103,3 +103,15 @@ body {
   background-color: #005fcc;
   transform: scale(1.05);
 }
+
+/* Dropdown Styling */
+.breed-select-container {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
