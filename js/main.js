@@ -55,6 +55,7 @@ document.querySelector("#aboutbtn").addEventListener("click", () => {showModal(i
 document.getElementById('saveCat').addEventListener('click', async () => {
     let element = await getInformation(index);  // fetch the current cat again
     saveCat(element.reference_image_id);        // save the correct image ID
+    document.querySelector("#about-cat").classList.add('hidden');  // hide the modal
 });
 
 // --- AUTO SLIDESHOW ---

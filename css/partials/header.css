@@ -36,7 +36,6 @@ header a {
     }
 
     header .logo {
-        flex-direction: column;
         align-items: center;
         gap: 5px;
     }
@@ -65,23 +64,30 @@ header a {
     header .links a {
         padding: 10px;
         font-size: 1.1rem;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         min-width: 100px;              /* prevents shrinking too small */
         max-width: 200px;
         text-decoration: none;
         text-align: center;
-    }
-
-    header .links a:hover {
-        background: #ffe6f2;
     }
 }
 
 /* --- MOBILE PHONES LAYOUT --- */
 @media (max-width: 600px) {
     header .links {
-        flex-direction: column;        /* stack links vertically on phones */
+        height: 0;
+        background-color: var(--header-background-color);
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transition: all .5s ease;
+        top: 50px;
+        width: 100%;
+        overflow: hidden;
+        flex-direction: column;
+    }
+    header .logo:hover + .links, header .links:hover {
+        height: 200px;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
