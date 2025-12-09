@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/contact.css">
+    <script src="js/contact.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,15 +30,18 @@
     <h1>Contact Us</h1>
     <p>We’d love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out using the form below.</p>
 
-    <form action="#" method="post">
+    <form name="contactForm" class="form" action="index.html" method="post" novalidate>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
+      <span id="nameError" class="error-message"></span>
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
+      <span id="emailError" class="error-message"></span>
 
       <label for="message">Leave a Comment:</label>
       <textarea id="message" name="message" rows="5" required></textarea>
+      <span id="messageError" class="error-message"></span>
 
       <button type="submit">Send Message</button>
     </form>
